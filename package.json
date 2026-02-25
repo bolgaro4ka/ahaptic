@@ -1,6 +1,6 @@
 {
   "name": "capacitor-advanced-haptics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Advanced haptic engine for Android",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
