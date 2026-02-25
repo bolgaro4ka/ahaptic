@@ -9,6 +9,30 @@ npm install capacitor-advanced-haptics
 npx cap sync
 ```
 
+## Examples
+```
+import { AdvancedHaptics } from 'capacitor-advanced-haptics'
+
+await AdvancedHaptics.vibrate({
+  duration: 300,
+  amplitude: 255
+})
+```
+
+
+```
+let inv : any;
+let i = 0;
+
+inv = setInterval(async () => {
+    await AdvancedHaptics.predefined({type: 'tick'})
+    i++
+    if (i >= 10) {
+        clearInterval(inv );
+    }
+}, 200);
+```
+
 ## API
 
 <docgen-index>
