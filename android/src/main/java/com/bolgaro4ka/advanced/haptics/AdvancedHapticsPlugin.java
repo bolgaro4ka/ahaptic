@@ -50,28 +50,43 @@ public class AdvancedHapticsPlugin extends Plugin {
 
     @PluginMethod
     public void vibratePattern(PluginCall call) {
-        long[] pattern = call.getArray("pattern").toList().stream()
-                .mapToLong(obj -> ((Number) obj).longValue())
-                .toArray();
 
-        int repeat = call.getInt("repeat", -1);
+        try {
 
-        Vibrator vibrator = getVibrator();
+            if (call.getArray("pattern") == null) {
+                call.reject("Pattern is required");
+                return;
+            }
 
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            call.reject("No vibrator available");
-            return;
+            int length = call.getArray("pattern").length();
+            long[] pattern = new long[length];
+
+            for (int i = 0; i < length; i++) {
+                pattern[i] = call.getArray("pattern").getLong(i);
+            }
+
+            int repeat = call.getInt("repeat", -1);
+
+            Vibrator vibrator = getVibrator();
+
+            if (vibrator == null || !vibrator.hasVibrator()) {
+                call.reject("No vibrator available");
+                return;
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                VibrationEffect effect =
+                        VibrationEffect.createWaveform(pattern, repeat);
+                vibrator.vibrate(effect);
+            } else {
+                vibrator.vibrate(pattern, repeat);
+            }
+
+            call.resolve();
+
+        } catch (Exception e) {
+            call.reject("Invalid vibration pattern", e);
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            VibrationEffect effect =
-                    VibrationEffect.createWaveform(pattern, repeat);
-            vibrator.vibrate(effect);
-        } else {
-            vibrator.vibrate(pattern, repeat);
-        }
-
-        call.resolve();
     }
 
     @PluginMethod
