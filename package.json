@@ -1,7 +1,7 @@
 {
   "name": "capacitor-advanced-haptics",
   "version": "0.0.1",
-  "description": "Advanced Haptic for Android",
+  "description": "Advanced haptic engine for Android",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -39,7 +39,7 @@
     "eslint": "eslint . --ext ts",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "swiftlint": "node-swiftlint",
-    "docgen": "docgen --api AHapticPlugin --output-readme README.md --output-json dist/docs.json",
+    "docgen": "docgen --api AdvancedHapticsPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
@@ -59,7 +59,7 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.30.1",
     "swiftlint": "^2.0.0",
-    "typescript": "~4.1.5"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@capacitor/core": ">=7.0.0"

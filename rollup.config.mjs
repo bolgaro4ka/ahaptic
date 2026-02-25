@@ -4,7 +4,7 @@ export default {
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorAHaptic',
+      name: 'capacitorAdvancedHaptics',
       globals: {
         '@capacitor/core': 'capacitorExports',
       },

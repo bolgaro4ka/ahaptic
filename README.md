@@ -1,6 +1,6 @@
 # capacitor-advanced-haptics
 
-Advanced Haptic for Android
+Advanced haptic engine for Android
 
 ## Install
 
@@ -11,9 +11,75 @@ npx cap sync
 
 ## API
 
-<docgen-index></docgen-index>
+<docgen-index>
+
+* [`vibrate(...)`](#vibrate)
+* [`vibratePattern(...)`](#vibratepattern)
+* [`predefined(...)`](#predefined)
+* [`cancel()`](#cancel)
+* [`hasAmplitudeControl()`](#hasamplitudecontrol)
+
+</docgen-index>
 
 <docgen-api>
-<!-- run docgen to generate docs from the source -->
-<!-- More info: https://github.com/ionic-team/capacitor-docgen -->
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### vibrate(...)
+
+```typescript
+vibrate(options: { duration?: number; amplitude?: number; }) => Promise<void>
+```
+
+| Param         | Type                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code>{ duration?: number; amplitude?: number; }</code> |
+
+--------------------
+
+
+### vibratePattern(...)
+
+```typescript
+vibratePattern(options: { pattern: number[]; repeat?: number; }) => Promise<void>
+```
+
+| Param         | Type                                                 |
+| ------------- | ---------------------------------------------------- |
+| **`options`** | <code>{ pattern: number[]; repeat?: number; }</code> |
+
+--------------------
+
+
+### predefined(...)
+
+```typescript
+predefined(options: { type: 'click' | 'tick' | 'heavy'; }) => Promise<void>
+```
+
+| Param         | Type                                                 |
+| ------------- | ---------------------------------------------------- |
+| **`options`** | <code>{ type: 'click' \| 'tick' \| 'heavy'; }</code> |
+
+--------------------
+
+
+### cancel()
+
+```typescript
+cancel() => Promise<void>
+```
+
+--------------------
+
+
+### hasAmplitudeControl()
+
+```typescript
+hasAmplitudeControl() => Promise<{ value: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ value: boolean; }&gt;</code>
+
+--------------------
+
 </docgen-api>

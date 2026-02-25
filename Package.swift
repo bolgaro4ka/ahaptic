@@ -7,22 +7,22 @@ let package = Package(
     products: [
         .library(
             name: "CapacitorAdvancedHaptics",
-            targets: ["AHapticPlugin"])
+            targets: ["AdvancedHapticsPlugin"])
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "7.0.0")
     ],
     targets: [
         .target(
-            name: "AHapticPlugin",
+            name: "AdvancedHapticsPlugin",
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm")
             ],
-            path: "ios/Sources/AHapticPlugin"),
+            path: "ios/Sources/AdvancedHapticsPlugin"),
         .testTarget(
-            name: "AHapticPluginTests",
-            dependencies: ["AHapticPlugin"],
-            path: "ios/Tests/AHapticPluginTests")
+            name: "AdvancedHapticsPluginTests",
+            dependencies: ["AdvancedHapticsPlugin"],
+            path: "ios/Tests/AdvancedHapticsPluginTests")
     ]
 )
