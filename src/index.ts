@@ -1,10 +1,6 @@
-import { registerPlugin } from '@capacitor/core';
+import { registerPlugin } from '@capacitor/core'
+import type { AdvancedHapticsPlugin } from './definitions'
 
-import type { AHapticPlugin } from './definitions';
-
-const AHaptic = registerPlugin<AHapticPlugin>('AHaptic', {
-  web: () => import('./web').then((m) => new m.AHapticWeb()),
-});
-
-export * from './definitions';
-export { AHaptic };
+export const AdvancedHaptics = registerPlugin<AdvancedHapticsPlugin>(
+  'AdvancedHaptics'
+)
