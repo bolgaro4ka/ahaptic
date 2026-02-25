@@ -6,10 +6,11 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.os.VibratorManager;
 
+import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
+import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-import com.getcapacitor.annotation.PluginMethod;
 
 @CapacitorPlugin(name = "AdvancedHaptics")
 public class AdvancedHapticsPlugin extends Plugin {
@@ -26,7 +27,7 @@ public class AdvancedHapticsPlugin extends Plugin {
 
     @PluginMethod
     public void vibrate(PluginCall call) {
-        long duration = call.getLong("duration", 200);
+        long duration = call.getLong("duration", 200L);
         int amplitude = call.getInt("amplitude", 255);
 
         Vibrator vibrator = getVibrator();
